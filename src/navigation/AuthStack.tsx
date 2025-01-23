@@ -8,13 +8,14 @@ import ContextScreen from '../screens/auth/ContextScreen';
 const Stack = createNativeStackNavigator();
 export default function AuthStack() {
   return (
+    // The first stack screen will be the default screen: e.g. ContextScreen
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Context">
         {props => <ContextScreen {...props} />}
       </Stack.Screen>
       <Stack.Screen name="Login">
         {props => (
-          <AuthLayout>
+          <AuthLayout {...props}>
             <LoginScreen {...props} />
           </AuthLayout>
         )}
@@ -22,7 +23,7 @@ export default function AuthStack() {
 
       <Stack.Screen name="Register">
         {props => (
-          <AuthLayout>
+          <AuthLayout {...props}>
             <RegisterScreen {...props} />
           </AuthLayout>
         )}
